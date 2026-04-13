@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-charcoal: #141414;
+  --color-ink: #1c1c1c;
+  --color-secondary: #4a4a46;
+  --color-muted: #73736e;
+  --color-off-white: #f5f5f3;
+  --color-paper: #ffffff;
+  --color-border-subtle: #e0e0db;
+  --color-line: #1a1a1a;
+  --shadow-float: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+:root {
+  --background: var(--color-off-white);
+  --foreground: var(--color-charcoal);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#about,
+#projects,
+#skills,
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto w-full max-w-[1200px] px-5 md:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted;
+  }
+
+  .section-title {
+    @apply font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold tracking-tight text-charcoal;
+  }
+
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .detail-prose {
+    @apply text-[1.05rem] leading-[1.75] text-secondary;
+  }
+
+  .detail-prose h3 {
+    @apply mt-10 mb-3 font-serif text-lg font-semibold text-charcoal first:mt-0 md:text-xl;
+  }
+
+  .detail-prose p {
+    @apply mb-4;
+  }
+
+  .detail-prose img {
+    @apply rounded-sm border border-border-subtle transition-shadow duration-300 hover:shadow-float;
+  }
+
+  .detail-prose ul {
+    @apply list-none;
+  }
+
+  .case-table {
+    @apply w-full border-collapse text-sm text-secondary;
+  }
+
+  .case-table th {
+    @apply border-b border-border-subtle bg-off-white px-3 py-2.5 text-left font-sans text-xs font-semibold uppercase tracking-wider text-charcoal;
+  }
+
+  .case-table td {
+    @apply border-b border-border-subtle px-3 py-2.5 align-top;
+  }
+}
