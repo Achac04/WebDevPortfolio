@@ -1,5 +1,6 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import CodeProjectCard from "@/components/CodeProjectCard";
 import ProjectCard from "@/components/ProjectCard";
 import { codeProjects, uxProjects } from "@/lib/projects";
 
@@ -35,8 +36,8 @@ export default function Home() {
                   visuals, and shipping interfaces that stay legible under real constraints.
                 </p>
                 <p>
-                  This site collects selected work—case studies for product and research projects—with space to add development
-                  work as it ships.
+                  This site collects selected work: UX case studies alongside shipped front-end projects you can open in the
+                  browser or inspect on GitHub.
                 </p>
               </div>
             </div>
@@ -47,8 +48,9 @@ export default function Home() {
           <div className="container-main py-16 md:py-24">
             <h2 className="section-title mb-4 border-l border-line pl-5">Projects</h2>
             <p className="mb-14 max-w-2xl text-secondary">
-              Work grouped by discipline. UX/UI case studies open into full narrative pages; development projects will appear in
-              the second column as you add them.
+              Work grouped by discipline. UX/UI case studies open into full narrative pages on this site. Code projects link out
+              to live Netlify demos and repositories, with stack versions taken from each repo&apos;s{" "}
+              <code className="rounded bg-off-white px-1 py-0.5 text-[0.8em] text-charcoal">package.json</code>.
             </p>
 
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-12">
@@ -63,18 +65,11 @@ export default function Home() {
 
               <div>
                 <h3 className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-muted">Code</h3>
-                {codeProjects.length === 0 ? (
-                  <div className="border border-dashed border-border-subtle bg-off-white px-6 py-14 text-center transition-colors duration-300 hover:border-charcoal/20">
-                    <p className="text-sm text-secondary">Development projects will be listed here.</p>
-                    <p className="mt-2 text-xs text-muted">You can add repos, stacks, and links when you are ready.</p>
-                  </div>
-                ) : (
-                  <div className="grid gap-8">
-                    {codeProjects.map((p) => (
-                      <ProjectCard key={p.slug} project={p} />
-                    ))}
-                  </div>
-                )}
+                <div className="grid gap-10">
+                  {codeProjects.map((p) => (
+                    <CodeProjectCard key={p.slug} project={p} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -95,7 +90,14 @@ export default function Home() {
                 },
                 {
                   label: "Development",
-                  items: ["React", "TypeScript", "Next.js", "HTML / CSS", "Responsive layout", "Vercel deployment"],
+                  items: [
+                    "React & Next.js",
+                    "TypeScript",
+                    "Vite",
+                    "Tailwind CSS",
+                    "Netlify",
+                    "Component-driven UI",
+                  ],
                 },
               ].map((col) => (
                 <div

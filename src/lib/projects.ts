@@ -10,6 +10,20 @@ export interface ProjectCard {
   coverAlt: string;
 }
 
+export interface CodeProject {
+  slug: string;
+  title: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  /** Tool or library name and the version used in that repo (from package.json). */
+  technologies: { name: string; version: string }[];
+  liveUrl: string;
+  githubUrl: string;
+  /** Controls the top visual band on the card */
+  theme: "warm" | "slate" | "ink";
+}
+
 export const uxProjects: ProjectCard[] = [
   {
     slug: "kids-web-browser",
@@ -43,4 +57,79 @@ export const uxProjects: ProjectCard[] = [
   },
 ];
 
-export const codeProjects: ProjectCard[] = [];
+export const codeProjects: CodeProject[] = [
+  {
+    slug: "lumino",
+    title: "Lumina & Lore (Lumino)",
+    tagline: "Boutique lighting · Next.js product prototype",
+    description:
+      "A polished, deployable storefront for a fictional lighting brand. It strings together discovery, browsing, cart, checkout, and a post-purchase restoration flow—plus a written case study recruiters can skim in one sitting.",
+    features: [
+      "Editorial landing, filterable catalog, and slide-out cart (Radix Dialog)",
+      "Multi-step checkout with progress states and sticky order summary",
+      "Restoration inquiry form with structured fields and uploads",
+      "Dedicated /case-study route: IA, visual system, accessibility, and performance notes",
+      "Safe image fallbacks, skip link, prefers-reduced-motion, and expanded metadata / OG",
+    ],
+    technologies: [
+      { name: "Next.js", version: "15.1" },
+      { name: "React", version: "19.0" },
+      { name: "TypeScript", version: "5.7" },
+      { name: "Tailwind CSS", version: "3.4" },
+      { name: "Radix UI", version: "Dialog 1.1 · Label 2.1 · Slot 1.1" },
+      { name: "Lucide React", version: "0.468" },
+    ],
+    liveUrl: "https://lumino-webpage.netlify.app/",
+    githubUrl: "https://github.com/Achac04/Lumino",
+    theme: "warm",
+  },
+  {
+    slug: "autoflow",
+    title: "AutoFlow",
+    tagline: "Dealership landing · performance & SEO",
+    description:
+      "A marketing-grade landing experience tuned for Core Web Vitals: fast paint, readable hierarchy, and a dynamic inventory grid backed by a mock CMS shape—showing design-to-code execution that stays accessible and mobile-first.",
+    features: [
+      "Performance-minded layout and asset strategy for strong CWV signals",
+      "Filterable vehicle inventory grid with clear scan patterns",
+      "Mock CMS-style content boundaries for realistic handoff structure",
+      "Semantic HTML, keyboard-friendly controls, and SEO-oriented structure",
+    ],
+    technologies: [
+      { name: "Next.js", version: "16.2" },
+      { name: "React", version: "19.2" },
+      { name: "TypeScript", version: "5.x" },
+      { name: "Tailwind CSS", version: "4" },
+      { name: "Lucide React", version: "1.8" },
+      { name: "Simple Icons", version: "16.18" },
+    ],
+    liveUrl: "https://northstart-autoflow.netlify.app/",
+    githubUrl: "https://github.com/Achac04/autoflow-performance-landing-page",
+    theme: "slate",
+  },
+  {
+    slug: "roomifi",
+    title: "Roomifi",
+    tagline: "AI interiors · floor plan to render",
+    description:
+      "An in-browser studio that turns a 2D floor plan into styled interior visuals. Auth, file hosting, and model calls run through Puter.js so the repo stays free of third-party API keys while still demonstrating a full AI pipeline.",
+    features: [
+      "Upload → vision analysis → image generation with ordered model fallbacks",
+      "Library, project detail with before/after, and community feed",
+      "Puter-backed auth, KV storage, and filesystem URLs for large renders",
+      "HashRouter for static hosting; theme toggle; dev mock when SDK is unavailable",
+    ],
+    technologies: [
+      { name: "React", version: "18.2" },
+      { name: "TypeScript", version: "5.2" },
+      { name: "Vite", version: "5.0" },
+      { name: "Tailwind CSS", version: "3.3" },
+      { name: "Framer Motion", version: "11.0" },
+      { name: "React Router", version: "6.21" },
+      { name: "Puter.js", version: "1.0" },
+    ],
+    liveUrl: "https://roomifi.netlify.app/",
+    githubUrl: "https://github.com/Achac04/Roomifi",
+    theme: "ink",
+  },
+];
