@@ -10,18 +10,26 @@ export interface ProjectCard {
   coverAlt: string;
 }
 
+export interface CodeProjectGalleryItem {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface CodeProject {
   slug: string;
   title: string;
-  tagline: string;
-  description: string;
+  subtitle: string;
+  excerpt: string;
+  coverImage: string;
+  coverAlt: string;
+  /** Longer narrative on the project detail page */
+  detailParagraphs: string[];
+  gallery: CodeProjectGalleryItem[];
   features: string[];
-  /** Tool or library name and the version used in that repo (from package.json). */
   technologies: { name: string; version: string }[];
   liveUrl: string;
   githubUrl: string;
-  /** Controls the top visual band on the card */
-  theme: "warm" | "slate" | "ink";
 }
 
 export const uxProjects: ProjectCard[] = [
@@ -61,9 +69,28 @@ export const codeProjects: CodeProject[] = [
   {
     slug: "lumino",
     title: "Lumina & Lore (Lumino)",
-    tagline: "Boutique lighting · Next.js product prototype",
-    description:
-      "A polished, deployable storefront for a fictional lighting brand. It strings together discovery, browsing, cart, checkout, and a post-purchase restoration flow—plus a written case study recruiters can skim in one sitting.",
+    subtitle: "Boutique lighting · Next.js product prototype",
+    excerpt:
+      "High-fidelity storefront prototype: catalog, cart sheet, checkout, restoration flow, and an in-app case study for recruiters.",
+    coverImage: "/images/Code-Projects/lumino-card.svg",
+    coverAlt: "Abstract preview of the Lumino lighting storefront layout",
+    detailParagraphs: [
+      "Lumino is a self-contained product narrative: a fictional boutique lighting brand rendered as a production-shaped Next.js app. The goal was to show how editorial brand voice, commerce patterns, and accessibility-minded engineering can live in one deployable artifact.",
+      "The experience moves from a calm landing into a filterable catalog, a Radix-powered cart sheet, a stepped checkout with visible progress, and a restoration inquiry path that reads as a credible post-purchase service. A dedicated case-study route documents information architecture, visual system choices, and tradeoffs so hiring managers can evaluate thinking—not only pixels.",
+      "Resilience and quality signals include safe image fallbacks for remote product art, a skip link to main content, reduced-motion respect for decorative animation, and expanded metadata including an Open Graph image for sharing.",
+    ],
+    gallery: [
+      {
+        src: "/images/Code-Projects/lumino-gallery-1.svg",
+        alt: "Wireframe-style composition suggesting catalog and product grid",
+        caption: "Catalog & product emphasis",
+      },
+      {
+        src: "/images/Code-Projects/lumino-gallery-2.svg",
+        alt: "Abstract composition suggesting checkout progress and summary",
+        caption: "Checkout & progress framing",
+      },
+    ],
     features: [
       "Editorial landing, filterable catalog, and slide-out cart (Radix Dialog)",
       "Multi-step checkout with progress states and sticky order summary",
@@ -81,14 +108,32 @@ export const codeProjects: CodeProject[] = [
     ],
     liveUrl: "https://lumino-webpage.netlify.app/",
     githubUrl: "https://github.com/Achac04/Lumino",
-    theme: "warm",
   },
   {
     slug: "autoflow",
     title: "AutoFlow",
-    tagline: "Dealership landing · performance & SEO",
-    description:
-      "A marketing-grade landing experience tuned for Core Web Vitals: fast paint, readable hierarchy, and a dynamic inventory grid backed by a mock CMS shape—showing design-to-code execution that stays accessible and mobile-first.",
+    subtitle: "Dealership landing · performance & SEO",
+    excerpt:
+      "Marketing-grade Next.js landing focused on Core Web Vitals, inventory discovery, and a mock CMS-shaped content model.",
+    coverImage: "/images/Code-Projects/autoflow-card.svg",
+    coverAlt: "Abstract preview of the AutoFlow dealership landing layout",
+    detailParagraphs: [
+      "AutoFlow explores how a conversion-oriented marketing surface should feel when performance and clarity are first-class requirements—not afterthoughts. The page is structured so scanners get hierarchy immediately, while readers who scroll find proof, inventory, and calls to action without friction.",
+      "A dynamic inventory grid anchors the story: vehicles are easy to scan, filter, and compare using patterns familiar from real dealership sites, but implemented with lean markup and Tailwind utility discipline suited to strong Core Web Vitals scores.",
+      "The project also demonstrates a mock CMS boundary: content is shaped as if it were delivered from a headless source, which keeps components honest about props, loading states, and future editorial handoff—even though the demo ships with static demo data.",
+    ],
+    gallery: [
+      {
+        src: "/images/Code-Projects/autoflow-gallery-1.svg",
+        alt: "Abstract composition suggesting vehicle inventory grid",
+        caption: "Inventory grid & scan patterns",
+      },
+      {
+        src: "/images/Code-Projects/autoflow-gallery-2.svg",
+        alt: "Abstract composition suggesting hero and content stack",
+        caption: "Hero hierarchy & content stack",
+      },
+    ],
     features: [
       "Performance-minded layout and asset strategy for strong CWV signals",
       "Filterable vehicle inventory grid with clear scan patterns",
@@ -105,14 +150,32 @@ export const codeProjects: CodeProject[] = [
     ],
     liveUrl: "https://northstart-autoflow.netlify.app/",
     githubUrl: "https://github.com/Achac04/autoflow-performance-landing-page",
-    theme: "slate",
   },
   {
     slug: "roomifi",
     title: "Roomifi",
-    tagline: "AI interiors · floor plan to render",
-    description:
-      "An in-browser studio that turns a 2D floor plan into styled interior visuals. Auth, file hosting, and model calls run through Puter.js so the repo stays free of third-party API keys while still demonstrating a full AI pipeline.",
+    subtitle: "AI interiors · floor plan to render",
+    excerpt:
+      "Browser studio that turns a 2D plan into styled renders using Puter.js for auth, storage, and AI—no API keys in the repo.",
+    coverImage: "/images/Code-Projects/roomifi-card.svg",
+    coverAlt: "Abstract preview of the Roomifi studio and library layout",
+    detailParagraphs: [
+      "Roomifi is an end-to-end creative tool: users upload a floor plan, describe intent, and receive visualizations informed by a vision pass and a generation pass. The hardest product challenge—securely wiring AI and file IO in the browser—is handled through Puter.js so credentials never ship in client-side environment files.",
+      "Beyond the core studio loop, the app includes a library for saved work, a detail view suited to before/after comparison, and a community feed to mimic how real products socialize user output. HashRouter keeps deployment simple on static hosts like Netlify while preserving deep links.",
+      "The implementation emphasizes graceful degradation: when the Puter SDK is unavailable locally, a mock mode keeps development productive while clearly signaling state in the UI.",
+    ],
+    gallery: [
+      {
+        src: "/images/Code-Projects/roomifi-gallery-1.svg",
+        alt: "Abstract composition suggesting studio upload and pipeline",
+        caption: "Studio upload & pipeline",
+      },
+      {
+        src: "/images/Code-Projects/roomifi-gallery-2.svg",
+        alt: "Abstract composition suggesting library and project tiles",
+        caption: "Library & saved projects",
+      },
+    ],
     features: [
       "Upload → vision analysis → image generation with ordered model fallbacks",
       "Library, project detail with before/after, and community feed",
@@ -130,6 +193,9 @@ export const codeProjects: CodeProject[] = [
     ],
     liveUrl: "https://roomifi.netlify.app/",
     githubUrl: "https://github.com/Achac04/Roomifi",
-    theme: "ink",
   },
 ];
+
+export function getCodeProjectBySlug(slug: string): CodeProject | undefined {
+  return codeProjects.find((p) => p.slug === slug);
+}

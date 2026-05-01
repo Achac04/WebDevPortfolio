@@ -1,6 +1,5 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import CodeProjectCard from "@/components/CodeProjectCard";
 import ProjectCard from "@/components/ProjectCard";
 import { codeProjects, uxProjects } from "@/lib/projects";
 
@@ -48,9 +47,9 @@ export default function Home() {
           <div className="container-main py-16 md:py-24">
             <h2 className="section-title mb-4 border-l border-line pl-5">Projects</h2>
             <p className="mb-14 max-w-2xl text-secondary">
-              Work grouped by discipline. UX/UI case studies open into full narrative pages on this site. Code projects link out
-              to live Netlify demos and repositories, with stack versions taken from each repo&apos;s{" "}
-              <code className="rounded bg-off-white px-1 py-0.5 text-[0.8em] text-charcoal">package.json</code>.
+              Work grouped by discipline. UX/UI case studies open into long-form pages on this site. Code projects use the same
+              card pattern on the index; each opens a project page with gallery, overview, features, tech stack, and links to the
+              live Netlify demo and GitHub repository.
             </p>
 
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-12">
@@ -58,16 +57,34 @@ export default function Home() {
                 <h3 className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-muted">UX / UI</h3>
                 <div className="grid gap-8">
                   {uxProjects.map((p) => (
-                    <ProjectCard key={p.slug} project={p} />
+                    <ProjectCard
+                      key={p.slug}
+                      title={p.title}
+                      subtitle={p.subtitle}
+                      excerpt={p.excerpt}
+                      coverImage={p.coverImage}
+                      coverAlt={p.coverAlt}
+                      href={`/work/${p.slug}`}
+                      linkLabel="View case study →"
+                    />
                   ))}
                 </div>
               </div>
 
               <div>
                 <h3 className="mb-6 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-muted">Code</h3>
-                <div className="grid gap-10">
+                <div className="grid gap-8">
                   {codeProjects.map((p) => (
-                    <CodeProjectCard key={p.slug} project={p} />
+                    <ProjectCard
+                      key={p.slug}
+                      title={p.title}
+                      subtitle={p.subtitle}
+                      excerpt={p.excerpt}
+                      coverImage={p.coverImage}
+                      coverAlt={p.coverAlt}
+                      href={`/projects/${p.slug}`}
+                      linkLabel="View project →"
+                    />
                   ))}
                 </div>
               </div>
