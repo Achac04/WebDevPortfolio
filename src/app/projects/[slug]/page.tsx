@@ -114,30 +114,27 @@ export default async function CodeProjectPage({ params }: Props) {
           {p.gallery.length > 0 ? (
             <section className="mb-14 md:mb-16">
               <h2 className="eyebrow mb-6 text-charcoal">Gallery</h2>
-              <div className="flex flex-col gap-10 md:gap-12">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 lg:gap-6">
                 {p.gallery.map((item) => {
                   const svg = item.src.endsWith(".svg");
+                  const localAsset = item.src.startsWith("/images/");
                   return (
                     <figure
                       key={item.src}
-                      className="overflow-hidden border border-border-subtle bg-paper transition-shadow duration-300 hover:shadow-float"
+                      className="flex h-full flex-col border border-border-subtle bg-paper transition-shadow duration-300 hover:shadow-float"
                     >
-                      <div
-                        className="relative w-full bg-[#ebe9e4]"
-                        style={{ height: "clamp(280px, min(72vh, 920px), 920px)" }}
-                      >
+                      <div className="relative aspect-square w-full bg-off-white p-3 sm:p-4 md:p-6">
                         <Image
                           src={item.src}
                           alt={item.alt}
                           fill
-                          unoptimized={svg}
-                          quality={92}
-                          className="object-contain object-center p-3 sm:p-4 md:p-6"
-                          sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                          unoptimized={svg || localAsset}
+                          className="object-contain object-center"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, min(560px, 45vw)"
                         />
                       </div>
                       {item.caption ? (
-                        <figcaption className="border-t border-border-subtle px-4 py-3 text-xs text-secondary md:px-5">
+                        <figcaption className="mt-auto border-t border-border-subtle px-4 py-3 text-xs text-secondary">
                           {item.caption}
                         </figcaption>
                       ) : null}
