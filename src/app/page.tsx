@@ -66,6 +66,7 @@ export default function Home() {
                       coverAlt={p.coverAlt}
                       href={`/work/${p.slug}`}
                       linkLabel="View case study →"
+                      imageFit="cover"
                     />
                   ))}
                 </div>
