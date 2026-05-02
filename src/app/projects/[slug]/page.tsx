@@ -114,26 +114,30 @@ export default async function CodeProjectPage({ params }: Props) {
           {p.gallery.length > 0 ? (
             <section className="mb-14 md:mb-16">
               <h2 className="eyebrow mb-6 text-charcoal">Gallery</h2>
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="flex flex-col gap-10 md:gap-12">
                 {p.gallery.map((item) => {
                   const svg = item.src.endsWith(".svg");
                   return (
                     <figure
                       key={item.src}
-                      className="border border-border-subtle bg-paper transition-shadow duration-300 hover:shadow-float"
+                      className="overflow-hidden border border-border-subtle bg-paper transition-shadow duration-300 hover:shadow-float"
                     >
-                      <div className="relative aspect-[16/10] overflow-hidden bg-off-white">
+                      <div
+                        className="relative w-full bg-[#ebe9e4]"
+                        style={{ height: "clamp(280px, min(72vh, 920px), 920px)" }}
+                      >
                         <Image
                           src={item.src}
                           alt={item.alt}
                           fill
                           unoptimized={svg}
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          quality={92}
+                          className="object-contain object-center p-3 sm:p-4 md:p-6"
+                          sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
                         />
                       </div>
                       {item.caption ? (
-                        <figcaption className="border-t border-border-subtle px-4 py-3 text-xs text-secondary">
+                        <figcaption className="border-t border-border-subtle px-4 py-3 text-xs text-secondary md:px-5">
                           {item.caption}
                         </figcaption>
                       ) : null}
