@@ -15,10 +15,10 @@ export default function Home() {
           <div className="container-main py-20 md:py-28">
             <p className="eyebrow mb-6">Portfolio</p>
             <h1 className="max-w-3xl font-serif text-[clamp(2rem,5vw,3.25rem)] font-semibold leading-[1.12] tracking-tight text-charcoal">
-              Web designer & developer building clear, purposeful digital experiences.
+            Full-stack developer and UI designer.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              UX research, interface design, and front-end implementation—with the restraint and clarity of an architectural folio.
+            I focused on building high performance digital products. I bridge the gap between complex backend automation and clean, accessible interfaces. Crafting experiences that are as functional and refined.
             </p>
           </div>
         </section>
@@ -31,12 +31,12 @@ export default function Home() {
               </div>
               <div className="space-y-5 text-secondary md:text-lg md:leading-relaxed">
                 <p>
-                  I work at the intersection of UX/UI and implementation: framing problems with research, shaping flows and
-                  visuals, and shipping interfaces that stay legible under real constraints.
+                I believe the best digital experiences happen where design intent meets technical reality.
+                My background is in Software Development (SAIT), but my perspective is shaped by HCI and a constant focus on user outcomes. I don't just ship code; I build tools that help businesses run smoother and customers engage more clearly.
                 </p>
                 <p>
-                  This site collects selected work: UX case studies alongside shipped front-end projects you can open in the
-                  browser or inspect on GitHub.
+                This site serves as a record of my evolution from UI research and architectural prototyping to full-stack implementation. 
+                You’ll find my latest projects below, spanning SaaS products, high-conversion landing pages, and interactive design tools. Feel free to explore the live versions or dig into the code on GitHub."
                 </p>
               </div>
             </div>
@@ -47,10 +47,32 @@ export default function Home() {
           <div className="container-main py-16 md:py-24">
             <h2 className="section-title mb-4 border-l border-line pl-5">Projects</h2>
             <p className="mb-14 max-w-2xl text-secondary">
-              Work grouped by discipline. UX/UI case studies open into long-form pages on this site. Code projects use the same
-              card pattern on the index; each opens a project page with gallery, overview, features, tech stack, and links to the
-              live Netlify demo and GitHub repository.
+            I approach digital work as a balance between architectural rigor and user-centric design. 
+            My portfolio is a collection of systems rather than just finished products, each project is a sandbox where I test new frameworks, refine design patterns, and solve specific business constraints.
             </p>
+
+            <h2 className="section-title mb-4 border-l border-line pl-5">My Project Style:</h2>
+            <div className="mb-14 max-w-2xl space-y-4 text-secondary">
+              <p>
+                Whether I am designing a case study or shipping a full-stack application, my process remains consistent:
+              </p>
+              <ul className="m-0 list-disc space-y-4 pl-5 marker:text-charcoal">
+                <li>
+                  <strong className="font-semibold text-charcoal">Purposeful Design:</strong> I believe interfaces should be
+                  legible, accessible, and intentionally built. I prioritize clarity and restraint in every layout.
+                </li>
+                <li>
+                  <strong className="font-semibold text-charcoal">Systems Based Coding:</strong> My development style focuses
+                  on performance, scalability, and clean component architecture. I treat code as a long-term asset, not a
+                  temporary fix.
+                </li>
+                <li>
+                  <strong className="font-semibold text-charcoal">User First Logic:</strong> I build with the intent to solve
+                  real-world friction. Whether it is optimizing a conversion funnel or simplifying a user journey, the objective
+                  is always to make the digital experience more effective.
+                </li>
+              </ul>
+            </div>
 
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-12">
               <div>
@@ -66,7 +88,6 @@ export default function Home() {
                       coverAlt={p.coverAlt}
                       href={`/work/${p.slug}`}
                       linkLabel="View case study →"
-                      imageFit="cover"
                     />
                   ))}
                 </div>

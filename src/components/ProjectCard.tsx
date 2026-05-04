@@ -10,11 +10,6 @@ export interface ProjectCardProps {
   href: string;
   /** Shown at bottom of card (e.g. case study vs project) */
   linkLabel?: string;
-  /**
-   * How the image fills the preview area. `contain` keeps the full frame (best for UI screenshots).
-   * `cover` fills the cell and may crop (stronger for photography-style crops).
-   */
-  imageFit?: "contain" | "cover";
 }
 
 export default function ProjectCard({
@@ -25,27 +20,23 @@ export default function ProjectCard({
   coverAlt,
   href,
   linkLabel = "View case study →",
-  imageFit = "contain",
 }: ProjectCardProps) {
   const isSvg = coverImage.endsWith(".svg");
-  const fitClass = imageFit === "cover" ? "object-cover object-center" : "object-contain object-top";
 
   return (
     <Link
       href={href}
       className="group border border-border-subtle bg-paper no-underline transition duration-300 hover:-translate-y-1 hover:border-charcoal/25 hover:shadow-float"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-off-white">
-        <div className="absolute inset-0 p-2 sm:p-3 md:p-3.5">
-          <Image
-            src={coverImage}
-            alt={coverAlt}
-            fill
-            unoptimized={isSvg}
-            className={`${fitClass} transition duration-500 ease-out group-hover:scale-[1.02]`}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
-          />
-        </div>
+      <div className="relative aspect-[16/10] overflow-hidden bg-off-white">
+        <Image
+          src={coverImage}
+          alt={coverAlt}
+          fill
+          unoptimized={isSvg}
+          className="object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </div>
       <div className="border-t border-border-subtle p-5 md:p-6">
         <p className="eyebrow mb-2 text-[0.6rem]">{subtitle}</p>

@@ -1,5 +1,5 @@
+import ImageLightbox from "@/components/ImageLightbox";
 import { codeProjects, getCodeProjectBySlug } from "@/lib/projects";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -98,43 +98,38 @@ export default async function CodeProjectPage({ params }: Props) {
 
         <div className="container-main py-12 md:py-16">
           <section className="mb-14 border border-border-subtle bg-paper p-1 md:mb-16">
-            <div className="relative aspect-[21/9] max-h-[min(52vh,520px)] w-full overflow-hidden bg-off-white md:aspect-[2.4/1]">
-              <Image
-                src={p.coverImage}
-                alt={p.coverAlt}
-                fill
-                priority
-                unoptimized={heroSvg}
-                className="object-cover object-top"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-              />
-            </div>
+            <ImageLightbox
+              src={p.coverImage}
+              alt={p.coverAlt}
+              priority
+              unoptimized={heroSvg}
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              frameClassName="relative aspect-[21/9] max-h-[min(52vh,520px)] w-full overflow-hidden bg-off-white md:aspect-[2.4/1]"
+              imageClassName="object-cover object-top"
+            />
           </section>
 
           {p.gallery.length > 0 ? (
             <section className="mb-14 md:mb-16">
               <h2 className="eyebrow mb-6 text-charcoal">Gallery</h2>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-5 lg:gap-6">
+              <div className="grid gap-6 md:grid-cols-2">
                 {p.gallery.map((item) => {
                   const svg = item.src.endsWith(".svg");
-                  const localAsset = item.src.startsWith("/images/");
                   return (
                     <figure
                       key={item.src}
-                      className="flex h-full flex-col border border-border-subtle bg-paper transition-shadow duration-300 hover:shadow-float"
+                      className="border border-border-subtle bg-paper transition-shadow duration-300 hover:shadow-float"
                     >
-                      <div className="relative aspect-square w-full bg-off-white p-3 sm:p-4 md:p-6">
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          unoptimized={svg || localAsset}
-                          className="object-contain object-center"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, min(560px, 45vw)"
-                        />
-                      </div>
+                      <ImageLightbox
+                        src={item.src}
+                        alt={item.alt}
+                        unoptimized={svg}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        frameClassName="relative aspect-[16/10] overflow-hidden bg-off-white"
+                        imageClassName="object-cover"
+                      />
                       {item.caption ? (
-                        <figcaption className="mt-auto border-t border-border-subtle px-4 py-3 text-xs text-secondary">
+                        <figcaption className="border-t border-border-subtle px-4 py-3 text-xs text-secondary">
                           {item.caption}
                         </figcaption>
                       ) : null}

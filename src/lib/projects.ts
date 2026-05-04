@@ -157,8 +157,8 @@ export const codeProjects: CodeProject[] = [
     subtitle: "AI interiors · floor plan to render",
     excerpt:
       "Browser studio that turns a 2D plan into styled renders using Puter.js for auth, storage, and AI—no API keys in the repo.",
-    coverImage: "/images/Code-Projects/roomifi-images/professional-tools.png",
-    coverAlt: "Roomifi professional tools and studio controls",
+    coverImage: "/images/Code-Projects/roomifi-images/project-screen.png",
+    coverAlt: "Roomifi studio interface showing floor plan workflow",
     detailParagraphs: [
       "Roomifi is an end-to-end creative tool: users upload a floor plan, describe intent, and receive visualizations informed by a vision pass and a generation pass. The hardest product challenge—securely wiring AI and file IO in the browser—is handled through Puter.js so credentials never ship in client-side environment files.",
       "Beyond the core studio loop, the app includes a library for saved work, a detail view suited to before/after comparison, and a community feed to mimic how real products socialize user output. HashRouter keeps deployment simple on static hosts like Netlify while preserving deep links.",
@@ -166,9 +166,9 @@ export const codeProjects: CodeProject[] = [
     ],
     gallery: [
       {
-        src: "/images/Code-Projects/roomifi-images/project-screen.png",
-        alt: "Roomifi studio interface showing floor plan workflow",
-        caption: "Studio & project view",
+        src: "/images/Code-Projects/roomifi-images/professional-tools.png",
+        alt: "Roomifi professional tools and studio controls",
+        caption: "Tools & studio",
       },
       {
         src: "/images/Code-Projects/roomifi-images/test1.png",
