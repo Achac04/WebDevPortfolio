@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import { codeProjects, uxProjects } from "@/lib/projects";
 
 const contactEmail =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "your.email@example.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "acchacon04@gmail.com";
 
 export default function Home() {
   return (

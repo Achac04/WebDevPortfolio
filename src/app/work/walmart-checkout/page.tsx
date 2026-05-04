@@ -112,7 +112,7 @@ export default function WalmartCheckoutPage() {
         },
         {
           id: "user-survey",
-          title: "User survey (simulated results)",
+          title: "User survey",
           content: (
             <>
               <p className="mb-6">

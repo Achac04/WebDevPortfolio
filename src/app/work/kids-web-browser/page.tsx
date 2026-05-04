@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import CaseStudyLayout from '@/components/CaseStudyLayout';
+import ImageLightbox from '@/components/ImageLightbox';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -155,30 +156,30 @@ export default function KidsBrowserPage() {
               
               <div className="flex snap-x snap-mandatory overflow-x-auto gap-6 py-6 my-12">
                 <div className="w-[85%] shrink-0 snap-center md:w-[45%]">
-                  <Image
+                  <ImageLightbox
                     src="/images/Kids-Web-Browser-Imges/6.png"
                     alt="User Persona 1"
-                    width={800}
-                    height={600}
-                    className="w-full h-auto"
+                    sizes="(max-width: 768px) 85vw, 45vw"
+                    frameClassName="relative aspect-[16/10] w-full overflow-hidden bg-off-white"
+                    imageClassName="object-cover"
                   />
                 </div>
                 <div className="w-[85%] shrink-0 snap-center md:w-[45%]">
-                  <Image
+                  <ImageLightbox
                     src="/images/Kids-Web-Browser-Imges/7.png"
                     alt="User Persona 2"
-                    width={800}
-                    height={600}
-                    className="w-full h-auto"
+                    sizes="(max-width: 768px) 85vw, 45vw"
+                    frameClassName="relative aspect-[16/10] w-full overflow-hidden bg-off-white"
+                    imageClassName="object-cover"
                   />
                 </div>
                 <div className="w-[85%] shrink-0 snap-center md:w-[45%]">
-                  <Image
+                  <ImageLightbox
                     src="/images/Kids-Web-Browser-Imges/8.png"
                     alt="User Persona 3"
-                    width={800}
-                    height={600}
-                    className="w-full h-auto"
+                    sizes="(max-width: 768px) 85vw, 45vw"
+                    frameClassName="relative aspect-[16/10] w-full overflow-hidden bg-off-white"
+                    imageClassName="object-cover"
                   />
                 </div>
               </div>

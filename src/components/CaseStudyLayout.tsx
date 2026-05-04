@@ -122,7 +122,7 @@ export default function CaseStudyLayout({
         </section>
 
         <div className="container-main py-12 md:py-16">
-          <div className="max-w-3xl">
+          <div className="mx-auto max-w-3xl">
             {sections.map((section, index) => (
               <section
                 key={section.id}
